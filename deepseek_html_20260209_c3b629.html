@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revolutionaire Leiders: Guevara, Malcolm X, Lumumba</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0c0c0c;
+            color: #f0f0f0;
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        /* Header stijlen */
+        header {
+            background-color: rgba(20, 20, 20, 0.95);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #b71c1c;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: #b71c1c;
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            background: linear-gradient(90deg, #b71c1c, #ff6f00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6f00;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #b71c1c;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero sectie */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: rgba(15, 15, 15, 0.8);
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ddd;
+        }
+        
+        .highlight {
+            color: #ff6f00;
+            font-weight: bold;
+        }
+        
+        /* Leiders sectie */
+        .leaders-section {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: white;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #b71c1c, #ff6f00);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .leaders-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+        }
+        
+        .leader-card {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #b71c1c;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(183, 28, 28, 0.3);
+        }
+        
+        .leader-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+        
+        .leader-info {
+            padding: 1.8rem;
+        }
+        
+        .leader-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: white;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.5rem;
+        }
+        
+        .leader-dates {
+            color: #ff6f00;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .leader-description {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .leader-quote {
+            font-style: italic;
+            color: #aaa;
+            border-left: 3px solid #b71c1c;
+            padding-left: 1rem;
+            margin: 1.2rem 0;
+        }
+        
+        .leader-achievements {
+            margin-top: 1.5rem;
+        }
+        
+        .leader-achievements h4 {
+            color: #ff6f00;
+            margin-bottom: 0.8rem;
+        }
+        
+        .achievement-list {
+            list-style-type: none;
+        }
+        
+        .achievement-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .achievement-list li:before {
+            content: '•';
+            color: #b71c1c;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* Tijdlijn sectie */
+        .timeline-section {
+            padding: 4rem 0;
+            background-color: rgba(20, 20, 20, 0.9);
+            margin: 3rem 0;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #b71c1c;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-content {
+            background-color: rgba(40, 40, 40, 0.9);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #ff6f00;
+        }
+        
+        .timeline-year {
+            color: #ff6f00;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #b71c1c;
+            border-radius: 50%;
+            top: 15px;
+            right: -12px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+            right: auto;
+        }
+        
+        /* Quotes sectie */
+        .quotes-section {
+            padding: 3rem 0;
+        }
+        
+        .quotes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .quote-card {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 320px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            border-top: 4px solid #ff6f00;
+        }
+        
+        .quote-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(183, 28, 28, 0.3);
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            color: #ff6f00;
+        }
+        
+        /* Footer stijlen */
+        footer {
+            background-color: rgba(15, 15, 15, 0.95);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+            border-top: 3px solid #b71c1c;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: #ff6f00;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            line-height: 1.8;
+        }
+        
+        .footer-section a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #ff6f00;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #b71c1c;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            margin-top: 1rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive aanpassingen */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px;
+            }
+            
+            .timeline-item::after {
+                left: 20px !important;
+                right: auto !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .leader-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header sectie -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-fist-raised"></i>
+                    <span>Revolutionaire Leiders</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#leaders">Leiders</a></li>
+                        <li><a href="#timeline">Tijdlijn</a></li>
+                        <li><a href="#quotes">Citaten</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero sectie -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Revolutionaire Leiders die Geschiedenis Schreven</h1>
+            <p>Deze website belicht drie iconische figuren die streedden voor vrijheid, gelijkheid en rechtvaardigheid: <span class="highlight">Che Guevara</span>, <span class="highlight">Malcolm X</span> en <span class="highlight">Patrice Lumumba</span>. Hun levens, ideeën en nalatenschap blijven relevant in onze hedendaagse strijd voor een betere wereld.</p>
+            <p><em>"De revolutie is geen appel die valt wanneer hij rijp is. Je moet hem laten vallen." - Che Guevara</em></p>
+        </div>
+    </section>
+
+    <!-- Leiders sectie -->
+    <section id="leaders" class="leaders-section">
+        <div class="container">
+            <h2 class="section-title">Drie Iconische Revolutionairen</h2>
+            <div class="leaders-container">
+                <!-- Che Guevara card -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Che Guevara">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">Che Guevara</h3>
+                        <div class="leader-dates">1928 - 1967</div>
+                        <p class="leader-description">Argentijns-Cubaanse revolutionair, arts, schrijver en guerrilla-leider. Hoofdrolspeler in de Cubaanse Revolutie en symbool van revolutionaire strijd wereldwijd.</p>
+                        <div class="leader-quote">"Wees realistisch, eis het onmogelijke."</div>
+                        <div class="leader-achievements">
+                            <h4>Belangrijke bijdragen:</h4>
+                            <ul class="achievement-list">
+                                <li>Mede-leider van de Cubaanse Revolutie</li>
+                                <li>Minister van Industrie in Cuba</li>
+                                <li>Guerrilla-strijd in Congo en Bolivia</li>
+                                <li>Internationalistisch revolutionair denken</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Malcolm X card -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Malcolm X">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">Malcolm X</h3>
+                        <div class="leader-dates">1925 - 1965</div>
+                        <p class="leader-description">Amerikaans mensenrechtenactivist en prominent spreker voor Afro-Amerikaanse rechten. Vertegenwoordigde de Nation of Islam en pleitte voor zwarte emancipatie.</p>
+                        <div class="leader-quote">"We verdedigen onszelf tegen elke agressor, te allen tijde, overal."</div>
+                        <div class="leader-achievements">
+                            <h4>Belangrijke bijdragen:</h4>
+                            <ul class="achievement-list">
+                                <li>Pleitte voor zwarte zelfverdediging en waardigheid</li>
+                                <li>Grondlegger van de Organization of Afro-American Unity</li>
+                                <li>Internationaliseerde de strijd voor burgerrechten</li>
+                                <li>Bracht islam en Afrikaans bewustzijn naar de beweging</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patrice Lumumba card -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Patrice Lumumba">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">Patrice Lumumba</h3>
+                        <div class="leader-dates">1925 - 1961</div>
+                        <p class="leader-description">Eerste democratisch verkozen premier van Congo. Streed voor Congolese onafhankelijkheid en een verenigd Afrika, wat hem tot doelwit maakte van koloniale krachten.</p>
+                        <div class="leader-quote">"Afrika zal haar eigen geschiedenis schrijven, en het zal een geschiedenis zijn van glorie en waardigheid."</div>
+                        <div class="leader-achievements">
+                            <h4>Belangrijke bijdragen:</h4>
+                            <ul class="achievement-list">
+                                <li>Leidde Congo naar onafhankelijkheid in 1960</li>
+                                <li>Pleitte voor pan-Afrikaanse eenheid</li>
+                                <li>Verdedigde Congolese soevereiniteit tegen neokolonialisme</li>
+                                <li>Symbool van Afrikaanse bevrijdingsstrijd</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tijdlijn sectie -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Historische Tijdlijn</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1925</div>
+                        <p>Malcolm X wordt geboren in Omaha, Nebraska. Patrice Lumumba wordt geboren in Onalua, Belgisch Congo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1928</div>
+                        <p>Che Guevara wordt geboren in Rosario, Argentinië.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1952</div>
+                        <p>Che Guevara begint zijn motorreis door Zuid-Amerika die zijn politieke bewustzijn vormt.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1955</div>
+                        <p>Malcolm X wordt een prominent woordvoerder voor de Nation of Islam.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1959</div>
+                        <p>Che Guevara speelt een cruciale rol in de overwinning van de Cubaanse Revolutie.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1960</div>
+                        <p>Patrice Lumumba wordt de eerste premier van het onafhankelijke Congo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1961</div>
+                        <p>Patrice Lumumba wordt vermoord met medeplichtigheid van Belgische en Amerikaanse geheime diensten.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1965</div>
+                        <p>Malcolm X wordt vermoord tijdens een toespraak in New York.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1967</div>
+                        <p>Che Guevara wordt geëxecuteerd in Bolivia, maar zijn revolutionaire ideeën blijven voortleven.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes sectie -->
+    <section id="quotes" class="quotes-section">
+        <div class="container">
+            <h2 class="section-title">Inspirerende Citaten</h2>
+            <div class="quotes-container">
+                <div class="quote-card">
+                    <p class="quote-text">Ik ben geen bevrijder. Bevrijders bestaan niet. Het zijn de mensen die zichzelf bevrijden.</p>
+                    <div class="quote-author">- Che Guevara</div>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">De toekomst behoort toe aan hen die zich vandaag voorbereiden.</p>
+                    <div class="quote-author">- Malcolm X</div>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">Zonder eerlijkheid, zonder integriteit, zonder patriottisme, zonder liefde voor vrijheid, is alle rijkdom, alle materiële vooruitgang, betekenisloos.</p>
+                    <div class="quote-author">- Patrice Lumumba</div>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">Als je stil bent, moet je vrezen voor je leven. Maar wanneer je opstaat, moet je alleen maar vrezen voor je leven.</p>
+                    <div class="quote-author">- Malcolm X</div>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">De revolutie is geen appel die valt wanneer hij rijp is. Je moet hem laten vallen.</p>
+                    <div class="quote-author">- Che Guevara</div>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">We zijn niet alleen Afrikanen, we zijn Afrikanen met een persoonlijkheid, met een geschiedenis, met een beschaving.</p>
+                    <div class="quote-author">- Patrice Lumumba</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer sectie -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Over deze website</h3>
+                    <p>Deze website brengt hulde aan drie revolutionaire leiders die vochten voor rechtvaardigheid en gelijkheid. Hun ideeën en strijd blijven inspireren voor nieuwe generaties.</p>
+                    <p>We onderzoeken de geschiedenis om lessen te trekken voor het heden en de toekomst.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Verder lezen</h3>
+                    <p><a href="#">Che Guevara: Een revolutionair leven</a></p>
+                    <p><a href="#">De autobiografie van Malcolm X</a></p>
+                    <p><a href="#">Lumumba: Afrika's verloren leider</a></p>
+                    <p><a href="#">Kolonialisme en de strijd voor onafhankelijkheid</a></p>
+                    <p><a href="#">Pan-Afrikanisme en de diaspora</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Volg de discussie</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem;">Deel deze website met anderen om deze belangrijke geschiedenis te verspreiden.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Revolutionaire Leiders. Educatief project. Alle afbeeldingen worden gebruikt voor educatieve doeleinden.</p>
+                <p style="margin-top: 0.5rem;">"Those who cannot remember the past are condemned to repeat it." - George Santayana</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling voor navigatie links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animaties voor timeline items wanneer ze in beeld komen
+        const observerOptions = {
+            threshold: 0.2
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observeer alle timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(item);
+        });
+        
+        // Observeer alle leader cards
+        document.querySelectorAll('.leader-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+            
+            // Laat cards een voor een verschijnen
+            setTimeout(() => {
+                observer.observe(card);
+            }, 100);
+        });
+        
+        // Voeg actieve klasse toe aan navigatie op basis van scrollpositie
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
